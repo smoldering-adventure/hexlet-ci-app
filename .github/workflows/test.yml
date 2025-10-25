@@ -4,6 +4,20 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - run: make setup
-            - run: make test
-            - run: make lint
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+
+            - name: Run install
+              run: make install
+
+            - name: Run setup
+              run: make setup
+
+            - name: Run tests
+              run: make test
+
+            - name: Run linter
+              run: make lint
